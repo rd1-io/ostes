@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://pavel-demidyuk.github.io',
+  site: 'https://rd1-io.github.io',
   base: '/ostes/',
 });
