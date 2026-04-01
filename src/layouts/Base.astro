@@ -1,0 +1,44 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileBar from '../components/MobileBar.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'ОстеоКлиник — современная клиника в Бресте. Неврология, УЗИ диагностика, хирургия, кардиология, флебология.',
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+---
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href={`${base}css/style.css`} />
+  </head>
+  <body>
+    <Header currentPath={currentPath} />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <MobileBar />
+    <script is:inline define:vars={{ base }}>
+      const s = document.createElement('script');
+      s.src = base + 'js/main.js';
+      document.body.appendChild(s);
+    </script>
+  </body>
+</html>

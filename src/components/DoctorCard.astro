@@ -1,0 +1,18 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  experience: string;
+  tags: string[];
+}
+const { name, role, experience, tags } = Astro.props;
+---
+<div class="doctor-card">
+  <div class="doctor-photo"></div>
+  <div class="doctor-name">{name}</div>
+  <div class="doctor-role">{role}</div>
+  <div class="doctor-exp">Стаж: {experience}</div>
+  <div class="doctor-tags">
+    {tags.map((tag) => <span class="doctor-tag">{tag}</span>)}
+  </div>
+</div>

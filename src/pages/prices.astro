@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import BookingCta from '../components/BookingCta.astro';
+import pricesData from '../data/prices.json';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Цены — ОстеоКлиник" description="Стоимость услуг ОстеоКлиник в Бресте: неврология, УЗИ, хирургия, кардиология, флебология.">
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[
+        { label: 'Главная', href: base },
+        { label: 'Цены' },
+      ]} />
+      <h1 class="page-title">Стоимость услуг</h1>
+      <p class="page-subtitle">Цены указаны в белорусских рублях. Точную стоимость уточняйте при записи.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      {pricesData.map((cat: any) => (
+        <div class="prices-category">
+          <h2>{cat.category}</h2>
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>Услуга</th>
+                <th>Стоимость</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cat.items.map((item: any) => (
+                <tr>
+                  <td>{item.name}</td>
+                  <td>{item.price}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+      <p class="prices-note">
+        <!-- Заменить на реальные данные -->
+        * Цены ориентировочные и могут отличаться. Точную стоимость уточняйте по телефону +375 29 805-02-02.
+      </p>
+      <div style="margin-top: 24px;">
+        <BookingCta />
+      </div>
+    </div>
+  </section>
+</Base>

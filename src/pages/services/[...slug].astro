@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const base = import.meta.env.BASE_URL;
+---
+<Base title={`${entry.data.title} — ОстеоКлиник`} description={entry.data.subtitle}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[
+        { label: 'Главная', href: base },
+        { label: entry.data.title },
+      ]} />
+      <h1 class="page-title">{entry.data.title}</h1>
+      <p class="page-subtitle">{entry.data.subtitle}</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="two-column">
+        <div class="content-block">
+          <Content />
+        </div>
+        <div class="side-panel">
+          <div class="side-widget">
+            <h3>Частые симптомы</h3>
+            <div class="pill-list">
+              {entry.data.symptoms.map((s: string) => <span class="pill">{s}</span>)}
+            </div>
+          </div>
+          <div class="side-widget">
+            <h3>Методы диагностики и лечения</h3>
+            <div class="pill-list">
+              {entry.data.methods.map((m: string) => <span class="pill">{m}</span>)}
+            </div>
+          </div>
+          <div class="side-widget">
+            <h3>Запись на приём</h3>
+            <p style="margin: 0 0 8px; color: var(--color-muted);">Позвоните или оставьте заявку онлайн — мы подберём удобное время.</p>
+            <a href={`${base}booking`} class="btn-primary" style="display: inline-block;">Записаться</a>
+          </div>
+        </div>
+      </div>
+      <BookingCta text={`Нужна консультация по направлению «${entry.data.title}»?`} />
+    </div>
+  </section>
+</Base>

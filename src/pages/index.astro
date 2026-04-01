@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import { getCollection } from 'astro:content';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const base = import.meta.env.BASE_URL;
+---
+<Base title="ОстеоКлиник — частная медицинская клиника в Бресте">
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1 class="hero-title">
+        Комплексный подход к<br />
+        <span class="hero-highlight">здоровью позвоночника, сосудов и сердца</span>
+      </h1>
+      <p class="hero-text">
+        Неврология, УЗИ диагностика, хирургия, кардиология и флебология в одном месте.
+        Работаем по записи, без очередей, с внимательным отношением к каждому пациенту.
+      </p>
+      <div class="hero-actions">
+        <a href={`${base}booking`} class="btn-primary btn-lg">Записаться на приём</a>
+        <a href="tel:+375298050202" class="btn-outline btn-lg">Позвонить</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-strip">
+    <div class="container">
+      <div class="features-row">
+        <div class="feature-item">
+          <strong>Опытные врачи</strong>
+          <span>Специалисты с многолетним стажем</span>
+        </div>
+        <div class="feature-item">
+          <strong>Современное УЗИ</strong>
+          <span>Диагностика на месте, без очередей</span>
+        </div>
+        <div class="feature-item">
+          <strong>Удобная запись</strong>
+          <span>Онлайн, по звонку или в мессенджере</span>
+        </div>
+        <div class="feature-item">
+          <strong>Внимание к пациенту</strong>
+          <span>Понятный план лечения и наблюдения</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <div class="section-eyebrow">Направления</div>
+        <h2 class="section-title">Основные услуги ОстеоКлиник</h2>
+        <p class="section-description">
+          Если вы не уверены, к какому специалисту записаться, просто опишите свои жалобы в заявке — мы поможем
+          подобрать подходящее направление.
+        </p>
+      </header>
+      <div class="grid-cards">
+        {services.map((s) => (
+          <ServiceCard title={s.data.title} text={s.data.cardText} slug={s.data.slug} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-text">
+          <h2>Нужна консультация врача в ближайшие дни?</h2>
+          <p>Оставьте заявку онлайн — администратор свяжется с вами, уточнит симптомы и подберёт удобное время.</p>
+        </div>
+        <div class="cta-actions">
+          <a href={`${base}booking`} class="btn-primary">Оставить заявку</a>
+          <a href="tel:+375298050202" class="btn-cta-secondary">+375 29 805-02-02</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

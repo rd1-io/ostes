@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const base = import.meta.env.BASE_URL;
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+<Base title="Блог — ОстеоКлиник" description="Полезные статьи о здоровье от врачей ОстеоКлиник.">
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[
+        { label: 'Главная', href: base },
+        { label: 'Блог' },
+      ]} />
+      <h1 class="page-title">Блог</h1>
+      <p class="page-subtitle">Полезные статьи о здоровье, профилактике и современных методах лечения от наших врачей.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="blog-grid">
+        {posts.map((post) => (
+          <a href={`${base}blog/${post.id}`} class="blog-card">
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+            <div class="blog-meta">{formatDate(post.data.date)}</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

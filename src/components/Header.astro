@@ -1,0 +1,41 @@
+---
+interface Props {
+  currentPath?: string;
+}
+const { currentPath = '' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<header class="site-header">
+  <div class="container header-top">
+    <a href={base} class="logo-box">
+      <img src={`${base}images/logo-mark.svg`} alt="ОстеоКлиник" class="logo-icon" width="72" height="72" />
+      <div class="logo-text">
+        <span class="logo-title">.Остео Клиник.</span>
+        <span class="logo-subtitle">медицинский центр в Бресте</span>
+      </div>
+    </a>
+    <div class="header-right">
+      <a href="tel:+375298050202" class="header-phone">+375&nbsp;29&nbsp;805&#8209;02&#8209;02</a>
+      <a href={`${base}booking`} class="btn-primary">Записаться</a>
+      <button class="menu-toggle" type="button" aria-label="Меню"></button>
+    </div>
+  </div>
+  <nav class="container header-nav">
+    <div class="nav-links">
+      <div class="nav-dropdown">
+        <a href="#" class="nav-dropdown-toggle">Направления</a>
+        <div class="nav-dropdown-menu">
+          <a href={`${base}services/neurology`}>Неврология</a>
+          <a href={`${base}services/ultrasound`}>УЗИ диагностика</a>
+          <a href={`${base}services/surgery`}>Хирургия</a>
+          <a href={`${base}services/cardiology`}>Кардиология</a>
+          <a href={`${base}services/phlebology`}>Флебология</a>
+        </div>
+      </div>
+      <a href={`${base}doctors`}>Врачи</a>
+      <a href={`${base}prices`}>Цены</a>
+      <a href={`${base}blog`}>Блог</a>
+      <a href={`${base}contacts`}>Контакты</a>
+    </div>
+  </nav>
+</header>

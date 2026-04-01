@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import DoctorCard from '../components/DoctorCard.astro';
+import BookingCta from '../components/BookingCta.astro';
+import { getCollection } from 'astro:content';
+
+const doctors = (await getCollection('doctors')).sort((a, b) => a.data.order - b.data.order);
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Врачи — ОстеоКлиник" description="Команда врачей ОстеоКлиник в Бресте: неврологи, кардиологи, хирурги, флебологи, специалисты УЗИ.">
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[
+        { label: 'Главная', href: base },
+        { label: 'Врачи' },
+      ]} />
+      <h1 class="page-title">Наши врачи</h1>
+      <p class="page-subtitle">Опытные специалисты с многолетним стажем. Каждый врач уделяет достаточно времени для тщательного обследования и подробной консультации.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="doctors-grid">
+        {doctors.map((d) => (
+          <DoctorCard
+            name={d.data.name}
+            role={d.data.role}
+            experience={d.data.experience}
+            tags={d.data.tags}
+          />
+        ))}
+      </div>
+      <div style="margin-top: 24px;">
+        <BookingCta />
+      </div>
+    </div>
+  </section>
+</Base>

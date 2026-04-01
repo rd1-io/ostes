@@ -1,0 +1,36 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-column">
+        <div class="footer-title">ООО «ОстеоКлиник»</div>
+        <div>Брест, б-р Космонавтов, 96, пом. 64</div>
+        <div>Тел.: +375 29 805-02-02</div>
+        <div>Email: 6610725ts@gmail.com</div>
+      </div>
+      <div class="footer-column">
+        <div class="footer-title">Разделы</div>
+        <div class="footer-links">
+          <a href={`${base}services/neurology`}>Неврология</a>
+          <a href={`${base}services/ultrasound`}>УЗИ диагностика</a>
+          <a href={`${base}services/surgery`}>Хирургия</a>
+          <a href={`${base}services/cardiology`}>Кардиология</a>
+          <a href={`${base}services/phlebology`}>Флебология</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <div class="footer-title">Информация</div>
+        <div>УНП 291921858</div>
+        <div>Работаем по предварительной записи</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <span>© ОстеоКлиник, Брест</span>
+        <span>Сайт не является публичной офертой. Уточняйте стоимость услуг по телефону.</span>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Контакты — ОстеоКлиник" description="Адрес, телефон, email и карта ОстеоКлиник в Бресте.">
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[
+        { label: 'Главная', href: base },
+        { label: 'Контакты' },
+      ]} />
+      <h1 class="page-title">Контакты</h1>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="contacts-grid">
+        <div class="content-block">
+          <dl class="contacts-list">
+            <dt>Адрес</dt>
+            <dd>г. Брест, б-р Космонавтов, 96, пом. 64</dd>
+
+            <dt>Телефон</dt>
+            <dd><a href="tel:+375298050202">+375 29 805-02-02</a></dd>
+
+            <dt>Email</dt>
+            <dd><a href="mailto:6610725ts@gmail.com">6610725ts@gmail.com</a></dd>
+
+            <dt>Режим работы</dt>
+            <dd>Пн–Пт: 9:00–19:00</dd>
+            <dd>Сб: 9:00–14:00</dd>
+            <dd>Вс: выходной</dd>
+
+            <dt>Юридическая информация</dt>
+            <dd>ООО «ОстеоКлиник»</dd>
+            <dd>УНП 291921858</dd>
+          </dl>
+          <!-- Заменить на реальный график работы -->
+        </div>
+        <div class="map-embed">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3A&source=constructorLink&ll=23.6978%2C52.0976&z=16&pt=23.6978%2C52.0976%2Cpm2rdm"
+            width="100%"
+            height="320"
+            frameborder="0"
+            allowfullscreen
+            title="ОстеоКлиник на карте"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
