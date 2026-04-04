@@ -213,23 +213,30 @@ button {
 }
 
 .carousel-slide {
+  position: relative;
   min-width: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.carousel-overlay {
-  display: flex;
-  align-items: center;
-  min-height: 380px;
-  padding: 72px 0 56px;
+.carousel-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     105deg,
     rgba(10, 25, 30, 0.82) 0%,
     rgba(10, 25, 30, 0.55) 60%,
     rgba(10, 25, 30, 0.3) 100%
   );
+  z-index: 1;
+}
+
+.carousel-overlay {
+  position: relative;
+  z-index: 2;
+  padding: 72px 0 56px;
 }
 
 .hero-inner {
@@ -1014,7 +1021,6 @@ button {
 
   /* Hero carousel */
   .carousel-overlay {
-    min-height: 280px;
     padding: 40px 0 44px;
   }
 
