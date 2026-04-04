@@ -200,8 +200,19 @@ button {
   border-color: var(--color-primary);
 }
 
-/* Hero-блок */
-.hero {
+/* Hero carousel */
+.hero-carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide {
+  min-width: 100%;
   padding: 64px 0 48px;
 }
 
@@ -231,6 +242,29 @@ button {
   display: flex;
   align-items: center;
   gap: 14px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 0 32px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.25s ease, width 0.25s ease;
+}
+
+.carousel-dot.is-active {
+  width: 28px;
+  background: var(--color-primary);
 }
 
 .btn-lg {
@@ -945,9 +979,13 @@ button {
     font-size: 10px;
   }
 
-  /* Hero */
-  .hero {
+  /* Hero carousel */
+  .carousel-slide {
     padding: 32px 0 28px;
+  }
+
+  .carousel-dots {
+    padding: 0 0 20px;
   }
 
   .hero-title {

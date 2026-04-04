@@ -6,20 +6,75 @@ import { getCollection } from 'astro:content';
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 ---
 <Base title="ОстеоКлиник — частная медицинская клиника в Бресте">
-  <section class="hero">
-    <div class="container hero-inner">
-      <h1 class="hero-title">
-        Комплексный подход к<br />
-        <span class="hero-highlight">здоровью позвоночника, сосудов и сердца</span>
-      </h1>
-      <p class="hero-text">
-        Неврология, УЗИ диагностика, хирургия, кардиология и флебология в одном месте.
-        Работаем по записи, без очередей, с внимательным отношением к каждому пациенту.
-      </p>
-      <div class="hero-actions">
-        <a href="/booking" class="btn-primary btn-lg">Записаться на приём</a>
-        <a href="tel:+375298050202" class="btn-outline btn-lg">Позвонить</a>
+  <section class="hero-carousel">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <div class="container hero-inner">
+          <h2 class="hero-title">
+            Комплексный подход к<br />
+            <span class="hero-highlight">здоровью позвоночника, сосудов и сердца</span>
+          </h2>
+          <p class="hero-text">
+            Неврология, УЗИ диагностика, хирургия, кардиология и флебология в одном месте.
+            Работаем по записи, без очередей, с внимательным отношением к каждому пациенту.
+          </p>
+          <div class="hero-actions">
+            <a href="/booking" class="btn-primary btn-lg">Записаться на приём</a>
+            <a href="tel:+375298050202" class="btn-outline btn-lg">Позвонить</a>
+          </div>
+        </div>
       </div>
+      <div class="carousel-slide">
+        <div class="container hero-inner">
+          <h2 class="hero-title">
+            <span class="hero-highlight">Неврология</span> — найдём причину боли
+          </h2>
+          <p class="hero-text">
+            Головные боли, остеохондроз, онемение конечностей, головокружения.
+            Опытный невролог проведёт диагностику и составит план лечения.
+          </p>
+          <div class="hero-actions">
+            <a href="/services/neurology" class="btn-primary btn-lg">Подробнее</a>
+            <a href="/booking" class="btn-outline btn-lg">Записаться</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="container hero-inner">
+          <h2 class="hero-title">
+            <span class="hero-highlight">УЗИ диагностика</span> на экспертном оборудовании
+          </h2>
+          <p class="hero-text">
+            Органы брюшной полости, щитовидная железа, сосуды, суставы, эхокардиография.
+            Результаты сразу после исследования.
+          </p>
+          <div class="hero-actions">
+            <a href="/services/ultrasound" class="btn-primary btn-lg">Подробнее</a>
+            <a href="/booking" class="btn-outline btn-lg">Записаться</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="container hero-inner">
+          <h2 class="hero-title">
+            <span class="hero-highlight">Кардиология и флебология</span> — забота о сосудах и сердце
+          </h2>
+          <p class="hero-text">
+            ЭКГ, эхокардиография, дуплексное сканирование вен, склеротерапия.
+            Современная диагностика и лечение в одной клинике.
+          </p>
+          <div class="hero-actions">
+            <a href="/services/cardiology" class="btn-primary btn-lg">Кардиология</a>
+            <a href="/services/phlebology" class="btn-outline btn-lg">Флебология</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-dots">
+      <button class="carousel-dot is-active" aria-label="Слайд 1"></button>
+      <button class="carousel-dot" aria-label="Слайд 2"></button>
+      <button class="carousel-dot" aria-label="Слайд 3"></button>
+      <button class="carousel-dot" aria-label="Слайд 4"></button>
     </div>
   </section>
 
