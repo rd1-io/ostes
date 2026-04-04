@@ -220,6 +220,9 @@ button {
 }
 
 .carousel-overlay {
+  display: flex;
+  align-items: center;
+  min-height: 380px;
   padding: 72px 0 56px;
   background: linear-gradient(
     105deg,
@@ -231,6 +234,7 @@ button {
 
 .hero-inner {
   max-width: 680px;
+  width: 100%;
 }
 
 .hero-title {
@@ -1010,6 +1014,7 @@ button {
 
   /* Hero carousel */
   .carousel-overlay {
+    min-height: 280px;
     padding: 40px 0 44px;
   }
 
