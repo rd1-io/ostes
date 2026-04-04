@@ -21,20 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  document.querySelectorAll(".nav-links a, .nav-dropdown-menu a").forEach((link) => {
+  document.querySelectorAll(".nav-links a").forEach((link) => {
     link.addEventListener("click", closeMenu);
     const href = link.getAttribute("href") || "";
     if (href !== "#" && window.location.pathname.endsWith(href)) {
       link.classList.add("is-active");
     }
   });
-
-  const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
-  if (dropdownToggle) {
-    dropdownToggle.addEventListener("click", (e) => {
-      e.preventDefault();
-    });
-  }
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();

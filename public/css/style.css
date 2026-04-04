@@ -131,8 +131,7 @@ main {
   font-size: 14px;
 }
 
-.nav-links > a,
-.nav-dropdown-toggle {
+.nav-links > a {
   padding: 6px 12px;
   border-radius: 8px;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -140,65 +139,17 @@ main {
 }
 
 .nav-links > a:hover,
-.nav-links > a.is-active,
-.nav-dropdown-toggle:hover {
+.nav-links > a.is-active {
   background-color: rgba(30, 123, 123, 0.07);
   color: var(--color-primary-dark);
 }
 
-/* Dropdown */
-.nav-dropdown {
-  position: relative;
-}
-
-.nav-dropdown-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.nav-dropdown-toggle::after {
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 4px solid currentColor;
-  opacity: 0.5;
-}
-
-.nav-dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: 4px;
-  background: var(--color-white);
-  border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  padding: 6px;
-  min-width: 200px;
-  z-index: 50;
-}
-
-.nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu {
-  display: flex;
-  flex-direction: column;
-}
-
-.nav-dropdown-menu a {
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 14px;
-  color: var(--color-text);
-  transition: background-color 0.15s ease;
-}
-
-.nav-dropdown-menu a:hover {
-  background: rgba(30, 123, 123, 0.06);
-  color: var(--color-primary-dark);
+.nav-sep {
+  width: 1px;
+  height: 16px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 0 4px;
+  flex-shrink: 0;
 }
 
 .btn,
@@ -957,8 +908,7 @@ button {
     gap: 0;
   }
 
-  .site-header.is-menu-open .nav-links > a,
-  .site-header.is-menu-open .nav-dropdown-toggle {
+  .site-header.is-menu-open .nav-links > a {
     padding: 14px 16px;
     border-radius: 12px;
     font-size: 17px;
@@ -966,21 +916,8 @@ button {
     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   }
 
-  .site-header.is-menu-open .nav-dropdown-menu {
-    display: flex;
-    flex-direction: column;
-    position: static;
-    box-shadow: none;
-    border: none;
-    padding: 0 0 0 16px;
-    min-width: 0;
-    margin: 0;
-  }
-
-  .site-header.is-menu-open .nav-dropdown-menu a {
-    padding: 12px 16px;
-    font-size: 16px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  .site-header.is-menu-open .nav-sep {
+    display: none;
   }
 
   /* Logo */
