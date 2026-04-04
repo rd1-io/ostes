@@ -3,13 +3,12 @@ import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import BookingCta from '../components/BookingCta.astro';
 import pricesData from '../data/prices.json';
-const base = import.meta.env.BASE_URL;
 ---
 <Base title="Цены — ОстеоКлиник" description="Стоимость услуг ОстеоКлиник в Бресте: неврология, УЗИ, хирургия, кардиология, флебология.">
   <section class="page-hero">
     <div class="container">
       <Breadcrumbs items={[
-        { label: 'Главная', href: base },
+        { label: 'Главная', href: '/' },
         { label: 'Цены' },
       ]} />
       <h1 class="page-title">Стоимость услуг</h1>

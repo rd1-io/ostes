@@ -6,13 +6,12 @@ import BookingCta from '../components/BookingCta.astro';
 import { getCollection } from 'astro:content';
 
 const doctors = (await getCollection('doctors')).sort((a, b) => a.data.order - b.data.order);
-const base = import.meta.env.BASE_URL;
 ---
 <Base title="Врачи — ОстеоКлиник" description="Команда врачей ОстеоКлиник в Бресте: неврологи, кардиологи, хирурги, флебологи, специалисты УЗИ.">
   <section class="page-hero">
     <div class="container">
       <Breadcrumbs items={[
-        { label: 'Главная', href: base },
+        { label: 'Главная', href: '/' },
         { label: 'Врачи' },
       ]} />
       <h1 class="page-title">Наши врачи</h1>

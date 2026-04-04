@@ -4,13 +4,12 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
-const base = import.meta.env.BASE_URL;
 ---
 <Base title="Запись на приём — ОстеоКлиник" description="Запишитесь на приём к врачу ОстеоКлиник в Бресте онлайн.">
   <section class="page-hero">
     <div class="container">
       <Breadcrumbs items={[
-        { label: 'Главная', href: base },
+        { label: 'Главная', href: '/' },
         { label: 'Запись на приём' },
       ]} />
       <h1 class="page-title">Запись на приём</h1>

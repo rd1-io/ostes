@@ -1,13 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-const base = import.meta.env.BASE_URL;
 ---
 <Base title="Контакты — ОстеоКлиник" description="Адрес, телефон, email и карта ОстеоКлиник в Бресте.">
   <section class="page-hero">
     <div class="container">
       <Breadcrumbs items={[
-        { label: 'Главная', href: base },
+        { label: 'Главная', href: '/' },
         { label: 'Контакты' },
       ]} />
       <h1 class="page-title">Контакты</h1>

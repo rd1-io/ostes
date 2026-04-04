@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://rd1-io.github.io',
-  base: '/ostes/',
+  site: 'https://osteo-klinik.by',
 });

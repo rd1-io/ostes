@@ -3,11 +3,10 @@ interface Props {
   text?: string;
 }
 const { text = 'Нужна консультация специалиста?' } = Astro.props;
-const base = import.meta.env.BASE_URL;
 ---
 <div class="page-cta">
   <div class="page-cta-box">
     <strong>{text}</strong>
-    <a href={`${base}booking`} class="btn-primary">Записаться на приём</a>
+    <a href="/booking" class="btn-primary">Записаться на приём</a>
   </div>
 </div>
