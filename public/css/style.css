@@ -144,6 +144,17 @@ main {
   color: var(--color-primary-dark);
 }
 
+.nav-links > a.nav-service {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.nav-links > a.nav-service:hover,
+.nav-links > a.nav-service.is-active {
+  background-color: rgba(30, 123, 123, 0.08);
+  color: var(--color-primary-dark);
+}
+
 .nav-sep {
   width: 1px;
   height: 16px;
