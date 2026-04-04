@@ -3,6 +3,7 @@
 start:
 	npm run dev
 
+release:
 deploy:
 	git add -A
 	git commit -m "deploy" --allow-empty

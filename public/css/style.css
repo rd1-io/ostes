@@ -204,6 +204,7 @@ button {
 .hero-carousel {
   position: relative;
   overflow: hidden;
+  background: #1a1a1a;
 }
 
 .carousel-track {
@@ -213,7 +214,19 @@ button {
 
 .carousel-slide {
   min-width: 100%;
-  padding: 64px 0 48px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carousel-overlay {
+  padding: 72px 0 56px;
+  background: linear-gradient(
+    105deg,
+    rgba(10, 25, 30, 0.82) 0%,
+    rgba(10, 25, 30, 0.55) 60%,
+    rgba(10, 25, 30, 0.3) 100%
+  );
 }
 
 .hero-inner {
@@ -225,17 +238,18 @@ button {
   font-size: clamp(32px, 4vw, 44px);
   line-height: 1.15;
   letter-spacing: -0.01em;
+  color: #fff;
 }
 
 .hero-highlight {
-  color: var(--color-primary-dark);
+  color: #5ed9d1;
 }
 
 .hero-text {
   margin: 0 0 28px;
   font-size: 17px;
   line-height: 1.6;
-  color: var(--color-muted);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .hero-actions {
@@ -244,11 +258,26 @@ button {
   gap: 14px;
 }
 
+.hero-actions .btn-outline {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-actions .btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
 .carousel-dots {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   gap: 8px;
-  padding: 0 0 32px;
+  padding: 16px 0;
+  z-index: 2;
 }
 
 .carousel-dot {
@@ -256,7 +285,7 @@ button {
   height: 10px;
   border-radius: 999px;
   border: none;
-  background: rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.35);
   cursor: pointer;
   padding: 0;
   transition: background-color 0.25s ease, width 0.25s ease;
@@ -264,7 +293,7 @@ button {
 
 .carousel-dot.is-active {
   width: 28px;
-  background: var(--color-primary);
+  background: #fff;
 }
 
 .btn-lg {
@@ -980,12 +1009,12 @@ button {
   }
 
   /* Hero carousel */
-  .carousel-slide {
-    padding: 32px 0 28px;
+  .carousel-overlay {
+    padding: 40px 0 44px;
   }
 
   .carousel-dots {
-    padding: 0 0 20px;
+    padding: 12px 0;
   }
 
   .hero-title {
