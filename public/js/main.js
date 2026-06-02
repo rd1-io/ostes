@@ -21,6 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const navClose = document.querySelector(".nav-close");
+  if (navClose) {
+    navClose.addEventListener("click", closeMenu);
+  }
+
   document.querySelectorAll(".nav-links a").forEach((link) => {
     link.addEventListener("click", closeMenu);
     const href = link.getAttribute("href") || "";

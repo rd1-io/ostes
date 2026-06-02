@@ -966,6 +966,11 @@ button {
     border-radius: 1px;
   }
 
+  .site-header.is-menu-open {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
   .site-header.is-menu-open .menu-toggle::before {
     background: transparent;
     box-shadow: none;
@@ -976,8 +981,10 @@ button {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    margin: 0;
     z-index: 100;
     padding: 80px 20px 20px;
     background: rgba(248, 248, 249, 0.98);
@@ -985,6 +992,46 @@ button {
     -webkit-backdrop-filter: blur(16px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-close {
+    display: none;
+  }
+
+  .site-header.is-menu-open .nav-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 110;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    font-size: 0;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: var(--color-white);
+    cursor: pointer;
+  }
+
+  .nav-close::before,
+  .nav-close::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: var(--color-text);
+    border-radius: 1px;
+  }
+
+  .nav-close::before {
+    transform: rotate(45deg);
+  }
+
+  .nav-close::after {
+    transform: rotate(-45deg);
   }
 
   .site-header.is-menu-open .nav-links {
