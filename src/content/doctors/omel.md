@@ -1,7 +1,7 @@
 ---
 name: "Омельянюк Полина Александровна"
-role: "Врач-кардиолог"
-experience: ""
+role: "Врач-кардиолог второй квалификационной категории"
+experience: "8 лет"
 tags: ["кардиология"]
 image: "/images/doctors/omel.jpg"
 order: 5
