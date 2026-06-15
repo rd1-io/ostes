@@ -1,4 +1,4 @@
----
+<img width="1024" height="1280" alt="photo_2026-06-15_17-27-15" src="https://github.com/user-attachments/assets/d3340bbf-f9ec-4f5e-a70e-ec9d7ca12470" />
 name: "Корень Елена Алексеевна"
 role: "Врач-невролог"
 experience: ""
