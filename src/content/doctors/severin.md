@@ -3,6 +3,7 @@ name: "Северинчик Анна Игоревна"
 role: "Врач-невролог"
 experience: ""
 tags: ["неврология"]
+image: "/images/doctors/severin.jpg"
 order: 3
 ---
 

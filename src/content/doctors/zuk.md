@@ -3,6 +3,7 @@ name: "Жук Виктория Александровна"
 role: "Врач-невролог"
 experience: ""
 tags: ["неврология"]
+image: "/images/doctors/zuk.jpg"
 order: 6
 ---
 

@@ -3,6 +3,7 @@ name: "Корень Александр Александрович"
 role: "Врач-хирург,флеболог"
 experience: ""
 tags: ["Хирургия", "флебология"]
+image: "/images/doctors/koren-a.jpg"
 order: 2
 ---
 

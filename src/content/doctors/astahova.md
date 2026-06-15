@@ -3,6 +3,7 @@ name: "Астахова Наталья Александровна"
 role: "Врач УЗИ-диагностика"
 experience: ""
 tags: ["кардиология", "гипертония", "аритмия", "ЭКГ"]
+image: "/images/doctors/astahova.jpg"
 order: 4
 ---
 

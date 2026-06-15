@@ -3,6 +3,7 @@ name: "Омельянюк Полина Александровна"
 role: "Врач-кардиолог"
 experience: ""
 tags: ["кардиология"]
+image: "/images/doctors/omel.jpg"
 order: 5
 ---
 

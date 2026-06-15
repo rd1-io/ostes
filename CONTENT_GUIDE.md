@@ -76,7 +76,7 @@ methods:
 
 **Где:** папка [`src/content/doctors/`](src/content/doctors/)
 
-Файлы: `ivanov.md`, `petrova.md`, `kuznetsova.md`, `volkov.md`, `sidorov.md`
+Файлы: `Koren.md`, `Koren-a.md`, `severin.md`, `astahova.md`, `omel.md`, `zuk.md`
 
 **Структура файла:**
 
