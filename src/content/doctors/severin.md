@@ -1,7 +1,7 @@
 ---
 name: "Северинчик Анна Игоревна"
-role: "Врач-невролог"
-experience: ""
+role: "Врач-невролог второй квалификационной категории"
+experience: "11 лет"
 tags: ["неврология"]
 image: "/images/doctors/severin.jpg"
 order: 3
