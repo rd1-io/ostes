@@ -3,6 +3,7 @@ name: "Иванов Сергей Петрович"
 role: "Невролог"
 experience: "18 лет"
 tags: ["неврология", "остеохондроз", "головные боли"]
+image: "/images/doctors/ivanov.jpg"
 order: 1
 ---
 

@@ -21,6 +21,7 @@ const doctors = defineCollection({
     role: z.string(),
     experience: z.string(),
     tags: z.array(z.string()),
+    image: z.string().optional(),
     order: z.number(),
   }),
 });

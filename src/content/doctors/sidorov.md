@@ -3,6 +3,7 @@ name: "Сидоров Андрей Викторович"
 role: "Хирург"
 experience: "15 лет"
 tags: ["хирургия", "новообразования", "малая хирургия"]
+image: "/images/doctors/sidorov.jpg"
 order: 3
 ---
 

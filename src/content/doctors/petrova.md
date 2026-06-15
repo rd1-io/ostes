@@ -3,6 +3,7 @@ name: "Петрова Елена Александровна"
 role: "Врач УЗИ диагностики"
 experience: "12 лет"
 tags: ["УЗИ", "эхокардиография", "сосуды"]
+image: "/images/doctors/petrova.jpg"
 order: 2
 ---
 

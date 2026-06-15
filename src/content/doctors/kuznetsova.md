@@ -3,6 +3,7 @@ name: "Кузнецова Ольга Дмитриевна"
 role: "Кардиолог"
 experience: "20 лет"
 tags: ["кардиология", "гипертония", "аритмии", "ЭКГ"]
+image: "/images/doctors/kuznetsova.jpg"
 order: 4
 ---
 

@@ -4,11 +4,14 @@ interface Props {
   role: string;
   experience: string;
   tags: string[];
+  image?: string;
 }
-const { name, role, experience, tags } = Astro.props;
+const { name, role, experience, tags, image } = Astro.props;
 ---
 <div class="doctor-card">
-  <div class="doctor-photo"></div>
+  <div class="doctor-photo">
+    {image && <img src={image} alt={name} />}
+  </div>
   <div class="doctor-name">{name}</div>
   <div class="doctor-role">{role}</div>
   <div class="doctor-exp">Стаж: {experience}</div>
