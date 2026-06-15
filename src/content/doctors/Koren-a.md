@@ -1,4 +1,5 @@
----
+-<img width="1024" height="1280" alt="photo_2026-06-15_17-27-15" src="https://github.com/user-attachments/assets/457024d9-0d07-49f7-a224-a9b2a18e891e" />
+--
 name: "Корень Александр Александрович"
 role: "Врач-хирург,флеболог"
 experience: ""
