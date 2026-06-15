@@ -1,4 +1,4 @@
-(https://github.com/rd1-io/ostes/blob/main/public/images/Koren.jpg)
+---
 name: "Корень Александр Александрович"
 role: "Врач-хирург,флеболог"
 experience: ""
