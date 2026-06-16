@@ -14,9 +14,23 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { name, role, category, experience, image, manipulations, training } = entry.data;
+const { name, role, category, experience, image, tags, manipulations, training } = entry.data;
+const hasExperience = experience && experience !== '—';
+
+const trainingByYear = training.reduce((acc, item) => {
+  (acc[item.year] ??= []).push(item.title);
+  return acc;
+}, {} as Record<string, string[]>);
+
+const trainingYears = Object.keys(trainingByYear).sort((a, b) => {
+  const na = parseInt(a, 10);
+  const nb = parseInt(b, 10);
+  if (isNaN(na)) return 1;
+  if (isNaN(nb)) return -1;
+  return nb - na;
+});
 ---
-<Base title={`${name} — ОстеоКлиник`} description={`${role}. Стаж: ${experience}. Запись на приём в ОстеоКлиник, Брест.`}>
+<Base title={`${name} — ОстеоКлиник`} description={`${role}. ${hasExperience ? `Стаж: ${experience}. ` : ''}Запись на приём в ОстеоКлиник, Брест.`}>
   <section class="page-hero">
     <div class="container">
       <Breadcrumbs items={[
@@ -24,59 +38,70 @@ const { name, role, category, experience, image, manipulations, training } = ent
         { label: 'Врачи', href: '/doctors' },
         { label: name },
       ]} />
-      <div class="doctor-detail-header">
-        <div class="doctor-detail-photo">
-          {image
-            ? <img src={image} alt={name} />
-            : <div class="doctor-photo"></div>}
-        </div>
-        <div class="doctor-detail-info">
-          <h1 class="page-title">{name}</h1>
-          <p class="doctor-detail-role">{role}</p>
-          {category && <p class="doctor-detail-category">Категория: {category}</p>}
-          <p class="doctor-detail-exp">Стаж: {experience}</p>
-        </div>
-      </div>
     </div>
   </section>
 
   <section class="section" style="padding-top: 0;">
     <div class="container">
-      <div class="two-column">
-        <div class="content-block">
-          <Content />
+      <div class="doctor-profile">
+        <div class="doctor-profile-photo">
+          {image
+            ? <img src={image} alt={name} />
+            : <div class="doctor-photo-placeholder">{name.charAt(0)}</div>}
+        </div>
+        <div class="doctor-profile-body">
+          <h1 class="doctor-profile-name">{name}</h1>
+          <p class="doctor-profile-role">{role}</p>
+          <div class="doctor-profile-meta">
+            {category && <span class="doctor-meta-chip">Категория: {category}</span>}
+            {hasExperience && <span class="doctor-meta-chip">Стаж: {experience}</span>}
+          </div>
+          {tags.length > 0 && (
+            <div class="doctor-profile-tags">
+              {tags.map((tag) => <span class="doctor-tag">{tag}</span>)}
+            </div>
+          )}
+          <div class="doctor-profile-actions">
+            <a href="/booking" class="btn-primary">Записаться на приём</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="doctor-content">
+        <div class="doctor-content-main">
+          <div class="doctor-about">
+            <Content />
+          </div>
 
           {manipulations.length > 0 && (
-            <div class="doctor-section">
-              <h2>Манипуляции</h2>
+            <div class="info-card">
+              <h2>Манипуляции и услуги</h2>
               <ul class="doctor-manipulations">
                 {manipulations.map((item) => <li>{item}</li>)}
               </ul>
             </div>
           )}
+        </div>
 
-          {training.length > 0 && (
-            <div class="doctor-section">
-              <h2>Повышение квалификации и конференции</h2>
-              <ul class="doctor-training">
-                {training.map((item) => (
-                  <li class="doctor-training-item">
-                    <span class="doctor-training-year">{item.year}</span>
-                    <span class="doctor-training-title">{item.title}</span>
-                  </li>
+        {training.length > 0 && (
+          <aside class="doctor-content-side">
+            <div class="info-card">
+              <h2>Повышение квалификации<br />и конференции</h2>
+              <div class="doctor-training">
+                {trainingYears.map((year) => (
+                  <div class="doctor-training-group">
+                    <div class="doctor-training-year">{year}</div>
+                    <ul class="doctor-training-list">
+                      {trainingByYear[year].map((title) => <li>{title}</li>)}
+                    </ul>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
-          )}
-        </div>
-        <div class="side-panel">
-          <div class="side-widget">
-            <h3>Запись на приём</h3>
-            <p style="margin: 0 0 8px; color: var(--color-muted);">Позвоните или оставьте заявку онлайн — мы подберём удобное время.</p>
-            <a href="/booking" class="btn-primary" style="display: inline-block;">Записаться</a>
-          </div>
-        </div>
+          </aside>
+        )}
       </div>
+
       <BookingCta text={`Записаться на приём — ${name}`} />
     </div>
   </section>

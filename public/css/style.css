@@ -812,108 +812,217 @@ button {
   background: rgba(30, 123, 123, 0.06);
 }
 
-.doctor-detail-header {
+/* Страница врача */
+.doctor-profile {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.doctor-profile-photo {
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+}
+
+.doctor-profile-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  object-position: top center;
+}
+
+.doctor-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: var(--color-white);
   display: flex;
   align-items: center;
-  gap: 24px;
-  margin-top: 8px;
+  justify-content: center;
+  font-size: 56px;
+  font-weight: 600;
 }
 
-.doctor-detail-photo {
-  flex-shrink: 0;
+.doctor-profile-body {
+  flex: 1;
+  min-width: 0;
 }
 
-.doctor-detail-photo .doctor-photo,
-.doctor-detail-photo img {
-  width: 120px;
-  height: 120px;
-  border-radius: 999px;
-  object-fit: cover;
-}
-
-.doctor-detail-photo .doctor-photo {
-  margin-bottom: 0;
-}
-
-.doctor-detail-info .page-title {
+.doctor-profile-name {
   margin: 0 0 6px;
+  font-size: 26px;
 }
 
-.doctor-detail-role {
+.doctor-profile-role {
+  margin: 0 0 12px;
   font-size: 16px;
   color: var(--color-primary-dark);
-  margin: 0 0 4px;
+  font-weight: 500;
 }
 
-.doctor-detail-category,
-.doctor-detail-exp {
-  font-size: 14px;
-  color: var(--color-muted);
-  margin: 0 0 4px;
+.doctor-profile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
-.doctor-section {
-  margin-top: 28px;
+.doctor-meta-chip {
+  font-size: 13px;
+  color: var(--color-text);
+  background: rgba(30, 123, 123, 0.08);
+  padding: 5px 12px;
+  border-radius: 999px;
 }
 
-.doctor-section h2 {
-  font-size: 20px;
-  margin: 0 0 12px;
+.doctor-profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+
+.doctor-profile-actions {
+  margin-top: 4px;
+}
+
+.doctor-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.doctor-content-main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.doctor-about {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.doctor-about p {
+  margin: 0;
+}
+
+.info-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 22px 24px;
+}
+
+.info-card h2 {
+  margin: 0 0 16px;
+  font-size: 19px;
+  line-height: 1.25;
 }
 
 .doctor-manipulations {
-  margin: 0;
-  padding-left: 20px;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.doctor-manipulations li + li {
-  margin-top: 6px;
-}
-
-.doctor-training {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-left: 2px solid rgba(30, 123, 123, 0.2);
 }
 
-.doctor-training-item {
+.doctor-manipulations li {
   position: relative;
-  padding: 0 0 16px 20px;
+  padding-left: 28px;
+  margin-bottom: 12px;
   font-size: 14px;
   line-height: 1.5;
 }
 
-.doctor-training-item::before {
+.doctor-manipulations li:last-child {
+  margin-bottom: 0;
+}
+
+.doctor-manipulations li::before {
   content: "";
   position: absolute;
-  left: -6px;
-  top: 6px;
-  width: 10px;
-  height: 10px;
+  left: 0;
+  top: 2px;
+  width: 18px;
+  height: 18px;
   border-radius: 999px;
-  background: var(--color-primary);
+  background: rgba(30, 123, 123, 0.1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231e7b7b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+
+.doctor-training {
+  display: flex;
+  flex-direction: column;
+}
+
+.doctor-training-group {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.doctor-training-group:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.doctor-training-group:last-child {
+  padding-bottom: 0;
 }
 
 .doctor-training-year {
-  display: inline-block;
-  min-width: 48px;
-  font-weight: 600;
-  color: var(--color-primary-dark);
-  margin-right: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-primary);
 }
 
-.doctor-training-title {
+.doctor-training-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.doctor-training-list li {
+  font-size: 13.5px;
+  line-height: 1.5;
   color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.doctor-training-list li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .doctor-content {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
-  .doctor-detail-header {
+  .doctor-profile {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    text-align: left;
+    padding: 20px;
+  }
+
+  .doctor-profile-photo {
+    width: 120px;
+    height: 120px;
   }
 }
 
