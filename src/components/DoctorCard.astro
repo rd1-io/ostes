@@ -11,7 +11,9 @@ const { name, role, experience, tags, image, href } = Astro.props;
 ---
 <a class="doctor-card" href={href}>
   <div class="doctor-photo">
-    {image && <img src={image} alt={name} />}
+    {image
+      ? <img src={image} alt={name} />
+      : <span class="doctor-photo-initial">{name.charAt(0)}</span>}
   </div>
   <div class="doctor-name">{name}</div>
   <div class="doctor-role">{role}</div>

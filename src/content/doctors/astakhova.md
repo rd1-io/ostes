@@ -4,7 +4,6 @@ role: "Врач ультразвуковой диагностики"
 category: "Первая"
 experience: "28 лет"
 tags: ["узи", "эхокардиография", "сосуды", "суставы"]
-image: "/images/doctors/astahova.jpg"
 order: 4
 manipulations:
   - "УЗИ органов брюшной полости"
