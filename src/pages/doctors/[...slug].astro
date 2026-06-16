@@ -1,0 +1,83 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const doctors = await getCollection('doctors');
+  return doctors.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { name, role, category, experience, image, manipulations, training } = entry.data;
+---
+<Base title={`${name} — ОстеоКлиник`} description={`${role}. Стаж: ${experience}. Запись на приём в ОстеоКлиник, Брест.`}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumbs items={[
+        { label: 'Главная', href: '/' },
+        { label: 'Врачи', href: '/doctors' },
+        { label: name },
+      ]} />
+      <div class="doctor-detail-header">
+        <div class="doctor-detail-photo">
+          {image
+            ? <img src={image} alt={name} />
+            : <div class="doctor-photo"></div>}
+        </div>
+        <div class="doctor-detail-info">
+          <h1 class="page-title">{name}</h1>
+          <p class="doctor-detail-role">{role}</p>
+          {category && <p class="doctor-detail-category">Категория: {category}</p>}
+          <p class="doctor-detail-exp">Стаж: {experience}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="two-column">
+        <div class="content-block">
+          <Content />
+
+          {manipulations.length > 0 && (
+            <div class="doctor-section">
+              <h2>Манипуляции</h2>
+              <ul class="doctor-manipulations">
+                {manipulations.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          )}
+
+          {training.length > 0 && (
+            <div class="doctor-section">
+              <h2>Повышение квалификации и конференции</h2>
+              <ul class="doctor-training">
+                {training.map((item) => (
+                  <li class="doctor-training-item">
+                    <span class="doctor-training-year">{item.year}</span>
+                    <span class="doctor-training-title">{item.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        <div class="side-panel">
+          <div class="side-widget">
+            <h3>Запись на приём</h3>
+            <p style="margin: 0 0 8px; color: var(--color-muted);">Позвоните или оставьте заявку онлайн — мы подберём удобное время.</p>
+            <a href="/booking" class="btn-primary" style="display: inline-block;">Записаться</a>
+          </div>
+        </div>
+      </div>
+      <BookingCta text={`Записаться на приём — ${name}`} />
+    </div>
+  </section>
+</Base>

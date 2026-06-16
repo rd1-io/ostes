@@ -751,10 +751,19 @@ button {
 }
 
 .doctor-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
   background: var(--color-white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
   padding: 14px 14px 16px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .doctor-photo {
@@ -763,6 +772,14 @@ button {
   border-radius: 999px;
   background: linear-gradient(135deg, #f5f5f5, #e2e2e2);
   margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.doctor-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .doctor-name {
@@ -793,6 +810,111 @@ button {
   padding: 3px 7px;
   border-radius: 999px;
   background: rgba(30, 123, 123, 0.06);
+}
+
+.doctor-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.doctor-detail-photo {
+  flex-shrink: 0;
+}
+
+.doctor-detail-photo .doctor-photo,
+.doctor-detail-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.doctor-detail-photo .doctor-photo {
+  margin-bottom: 0;
+}
+
+.doctor-detail-info .page-title {
+  margin: 0 0 6px;
+}
+
+.doctor-detail-role {
+  font-size: 16px;
+  color: var(--color-primary-dark);
+  margin: 0 0 4px;
+}
+
+.doctor-detail-category,
+.doctor-detail-exp {
+  font-size: 14px;
+  color: var(--color-muted);
+  margin: 0 0 4px;
+}
+
+.doctor-section {
+  margin-top: 28px;
+}
+
+.doctor-section h2 {
+  font-size: 20px;
+  margin: 0 0 12px;
+}
+
+.doctor-manipulations {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.doctor-manipulations li + li {
+  margin-top: 6px;
+}
+
+.doctor-training {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid rgba(30, 123, 123, 0.2);
+}
+
+.doctor-training-item {
+  position: relative;
+  padding: 0 0 16px 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.doctor-training-item::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+.doctor-training-year {
+  display: inline-block;
+  min-width: 48px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin-right: 8px;
+}
+
+.doctor-training-title {
+  color: var(--color-text);
+}
+
+@media (max-width: 600px) {
+  .doctor-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
 }
 
 /* Цены */

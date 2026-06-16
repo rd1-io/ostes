@@ -5,10 +5,11 @@ interface Props {
   experience: string;
   tags: string[];
   image?: string;
+  href: string;
 }
-const { name, role, experience, tags, image } = Astro.props;
+const { name, role, experience, tags, image, href } = Astro.props;
 ---
-<div class="doctor-card">
+<a class="doctor-card" href={href}>
   <div class="doctor-photo">
     {image && <img src={image} alt={name} />}
   </div>
@@ -18,4 +19,4 @@ const { name, role, experience, tags, image } = Astro.props;
   <div class="doctor-tags">
     {tags.map((tag) => <span class="doctor-tag">{tag}</span>)}
   </div>
-</div>
+</a>

@@ -29,6 +29,7 @@ const doctors = (await getCollection('doctors')).sort((a, b) => a.data.order - b
             experience={d.data.experience}
             tags={d.data.tags}
             image={d.data.image}
+            href={`/doctors/${d.id}`}
           />
         ))}
       </div>

@@ -19,9 +19,15 @@ const doctors = defineCollection({
   schema: z.object({
     name: z.string(),
     role: z.string(),
+    category: z.string().optional(),
     experience: z.string(),
     tags: z.array(z.string()),
     image: z.string().optional(),
+    manipulations: z.array(z.string()).default([]),
+    training: z.array(z.object({
+      year: z.string(),
+      title: z.string(),
+    })).default([]),
     order: z.number(),
   }),
 });
